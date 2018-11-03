@@ -74,10 +74,11 @@ class ImagePickerList extends Process implements Module {
                     foreach ($p->$f as $i) {
                         if ($i->width > 260) {
                             $origurl = $i->url;
+                            $desc = ($i->description ? ' data-tooltip="' . $i->description . '"' : '');
                             $i = $i->width(260);
                         } else
                             $origurl = $i->url;
-                        $out .= '<div class="imgcont"><img title="' . $i . '" class="selectableimg lazyload" data-origurl=' . $origurl . ' data-src="' . $i->url . '"></div>';
+                        $out .= '<div class="imgcont"' . $desc . '><img title="' . $i . '" class="selectableimg lazyload" data-origurl=' . $origurl . ' data-src="' . $i->url . '"></div>';
                     }
                     $out .= '</div>';
                 }
